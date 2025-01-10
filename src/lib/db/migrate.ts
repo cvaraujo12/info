@@ -1,4 +1,4 @@
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
+import { migrate } from 'drizzle-orm/vercel-postgres/migrator';
 import { db } from '../db';
 
 const runMigrations = async () => {
@@ -13,4 +13,4 @@ const runMigrations = async () => {
   }
 };
 
-void runMigrations(); 
+void runMigrations();

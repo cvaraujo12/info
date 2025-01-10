@@ -1,74 +1,76 @@
-import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core';
+import { pgTable, text, integer, decimal, timestamp, serial } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 // Notícias
-export const news = sqliteTable('news', {
-  id: integer('id').primaryKey({ autoIncrement: true }),
+export const news = pgTable('news', {
+  id: serial('id').primaryKey(),
   title: text('title').notNull(),
   content: text('content').notNull(),
   summary: text('summary').notNull(),
   imageUrl: text('image_url'),
   source: text('source'),
-  publishedAt: integer('published_at').notNull(),
+  publishedAt: timestamp('published_at').notNull(),
   category: text('category').notNull(),
-  createdAt: integer('created_at').notNull().default(sql`(unixepoch())`),
+  createdAt: timestamp('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
 // Estatísticas
-export const statistics = sqliteTable('statistics', {
-  id: integer('id').primaryKey({ autoIncrement: true }),
+export const statistics = pgTable('statistics', {
+  id: serial('id').primaryKey(),
   country: text('country').notNull(),
   year: integer('year').notNull(),
-  investment: real('investment').notNull(),
+  investment: decimal('investment', { precision: 15, scale: 2 }).notNull(),
   projectCount: integer('project_count').notNull(),
-  tradeVolume: real('trade_volume').notNull(),
-  gdpImpact: real('gdp_impact'),
+  tradeVolume: decimal('trade_volume', { precision: 15, scale: 2 }).notNull(),
+  gdpImpact: decimal('gdp_impact', { precision: 5, scale: 2 }),
   employmentImpact: integer('employment_impact'),
-  createdAt: integer('created_at').notNull().default(sql`(unixepoch())`),
+  createdAt: timestamp('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
 // Projetos
-export const projects = sqliteTable('projects', {
-  id: integer('id').primaryKey({ autoIncrement: true }),
+export const projects = pgTable('projects', {
+  id: serial('id').primaryKey(),
   name: text('name').notNull(),
   description: text('description').notNull(),
   country: text('country').notNull(),
+  city: text('city'),
   status: text('status').notNull(),
-  type: text('type').notNull(),
-  investment: real('investment'),
-  startDate: integer('start_date'),
-  endDate: integer('end_date'),
-  latitude: real('latitude'),
-  longitude: real('longitude'),
+  startDate: timestamp('start_date'),
+  endDate: timestamp('end_date'),
+  budget: decimal('budget', { precision: 15, scale: 2 }),
+  progress: decimal('progress', { precision: 5, scale: 2 }),
+  contractor: text('contractor'),
+  sector: text('sector').notNull(),
   imageUrl: text('image_url'),
-  createdAt: integer('created_at').notNull().default(sql`(unixepoch())`),
+  createdAt: timestamp('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
 // Rotas
-export const routes = sqliteTable('routes', {
-  id: integer('id').primaryKey({ autoIncrement: true }),
+export const routes = pgTable('routes', {
+  id: serial('id').primaryKey(),
   name: text('name').notNull(),
-  type: text('type').notNull(),
   description: text('description').notNull(),
-  countries: text('countries').notNull(),
-  length: real('length'),
-  status: text('status').notNull(),
   startPoint: text('start_point').notNull(),
   endPoint: text('end_point').notNull(),
-  waypoints: text('waypoints'),
-  createdAt: integer('created_at').notNull().default(sql`(unixepoch())`),
+  distance: decimal('distance', { precision: 10, scale: 2 }).notNull(),
+  transportType: text('transport_type').notNull(),
+  status: text('status').notNull(),
+  completionDate: timestamp('completion_date'),
+  investment: decimal('investment', { precision: 15, scale: 2 }),
+  createdAt: timestamp('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
 // Análises
-export const analysis = sqliteTable('analysis', {
-  id: integer('id').primaryKey({ autoIncrement: true }),
+export const analysis = pgTable('analysis', {
+  id: serial('id').primaryKey(),
   title: text('title').notNull(),
   content: text('content').notNull(),
   summary: text('summary').notNull(),
   author: text('author').notNull(),
   category: text('category').notNull(),
-  tags: text('tags'),
+  sector: text('sector'),
+  region: text('region'),
+  publishedAt: timestamp('published_at').notNull(),
   imageUrl: text('image_url'),
-  publishedAt: integer('published_at').notNull(),
-  createdAt: integer('created_at').notNull().default(sql`(unixepoch())`),
-}); 
+  createdAt: timestamp('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
+});

@@ -1,12 +1,12 @@
 import type { Config } from 'drizzle-kit';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export default {
-  schema: './src/lib/schema.ts',
+  schema: './src/lib/db/schema.ts',
   out: './drizzle',
-  driver: 'better-sqlite',
+  driver: 'pg',
   dbCredentials: {
-    url: './data/database.sqlite'
+    connectionString: process.env.POSTGRES_URL!,
   },
-  verbose: true,
-  strict: true
-} satisfies Config; 
+} satisfies Config;

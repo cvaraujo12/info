@@ -1,46 +1,62 @@
-**Project Description:**
+**Explorando a Nova Rota da Seda: Uma Jornada de Descoberta**
 
-Info Route is a comprehensive and detailed website dedicated to providing up-to-date information about the New Silk Road (Belt and Road Initiative), a significant global infrastructure development project led by China. The platform aims to serve as a single source of information on news and updates, data and statistics, economic and geopolitical impacts, interactive maps, opinions and interviews, and technological innovations and sustainability related to the New Silk Road.
+Como podemos criar uma plataforma que verdadeiramente capture a complexidade e o dinamismo da Nova Rota da Seda (Iniciativa Belt and Road)? Esta é a questão fundamental que nos guia nesta jornada de exploração e descoberta.
 
-**Design Guidelines:**
+**Questões Fundamentais:**
 
-1. **News and Updates:**
-   - Present the latest announcements and developments related to the New Silk Road, including infrastructure projects, international partnerships, trade negotiations, and events.
-   - Ensure that the news and updates are presented in a clear, concise, and easy-to-understand format for investors, academics, and government leaders.
+1. **Compreendendo a Informação:**
+   - Como podemos apresentar informações complexas de forma acessível e significativa?
+   - Que tipos de dados são mais relevantes para diferentes públicos (investidores, acadêmicos, líderes governamentais)?
+   - Como equilibrar a profundidade da informação com a clareza da apresentação?
 
-2. **Data and Statistics:**
-   - Gather and visualize detailed data on investment and progress of the countries involved.
-   - Include trade volumes, project numbers, construction costs, and growth forecasts using interactive charts and graphs.
-   - Ensure that the data and statistics are accurate, up-to-date, and easily accessible for users.
+2. **Explorando Dados e Conexões:**
+   - Que histórias os dados nos contam sobre o desenvolvimento da Nova Rota da Seda?
+   - Como podemos visualizar as interconexões entre diferentes aspectos do projeto?
+   - Que padrões emergem quando analisamos dados de diferentes regiões e setores?
 
-3. **Economic and Geopolitical Impacts:**
-   - Analyze the impacts of the New Silk Road on regional and global economies.
-   - Explore geopolitical issues arising from the expansion of this trade route.
-   - Provide articles and analyses on diplomatic relations between participating countries, economic challenges, and opportunities.
-   - Ensure that the analysis is unbiased, informative, and relevant to the users.
+3. **Impactos e Transformações:**
+   - Como a iniciativa está transformando as relações econômicas globais?
+   - Que mudanças geopolíticas estão emergindo?
+   - Quais são as implicações para diferentes regiões e comunidades?
 
-4. **Interactive Maps:**
-   - Display detailed maps of transportation routes, ports, and rail terminals.
-   - Help readers visualize the connections between China, Europe, Asia, Africa, and other regions.
-   - Ensure that the interactive maps are user-friendly, informative, and accurate.
+4. **Visualização e Interatividade:**
+   - Como podemos tornar as rotas e conexões mais tangíveis através de mapas?
+   - Que formas de interação podem ajudar na compreensão do projeto?
+   - Como equilibrar complexidade e usabilidade?
 
-5. **Opinions and Interviews:**
-   - Provide a section for opinion pieces and interviews with experts on international trade, global politics, and economic development.
-   - Discuss the long-term effects of the Silk Road on China and partner countries.
-   - Ensure that the opinions and interviews are diverse, insightful, and relevant to the users.
+5. **Perspectivas e Diálogo:**
+   - Como podemos criar espaço para diferentes vozes e perspectivas?
+   - Que formato melhor serve para compartilhar insights de especialistas?
+   - Como facilitar um diálogo construtivo sobre o projeto?
 
-6. **Technological innovations and sustainability:**
-   - Address the technological and environmental aspects of the Silk Road.
-   - Highlight projects related to renewable energy, sustainable transport and infrastructure innovations.
-   - Emphasize how the initiative aims to address global sustainability challenges.
-   - Ensure that the information on technological innovations and sustainability is accurate, up-to-date, and relevant to the users.
+6. **Inovação e Sustentabilidade:**
+   - Como as inovações tecnológicas estão moldando o desenvolvimento do projeto?
+   - Que papel a sustentabilidade desempenha nas decisões e implementações?
+   - Como podemos monitorar e apresentar o impacto ambiental?
 
-**Additional Instructions:**
+**Exploração Tecnológica:**
 
-- Ensure that the platform is accessible and user-friendly for investors, academics, and government leaders.
-- Position Info Route as an essential platform for those seeking to follow the development of the largest global economic initiative of the 21st century.
-- Provide crucial insights into the opportunities and challenges of the New Silk Road.
-- Use Astro, React, SQLite, Express, Tailwind, Shadcn, and Typescript to build the website.
-- Ensure that the website is optimized for speed, security, and scalability.
-- Test the website thoroughly for bugs, compatibility issues, and user experience.
-- Follow best practices for web design, development, and accessibility.
+Estamos considerando várias tecnologias para construir esta plataforma. Cada escolha precisa ser cuidadosamente avaliada:
+
+- **Framework Base:**
+  - Por que Astro? Que benefícios ele traz para nosso caso específico?
+  - Como ele se compara com outras alternativas?
+
+- **Interface do Usuário:**
+  - React: Quais são suas vantagens para nossa necessidade de interatividade?
+  - Tailwind e Shadcn: Como eles podem nos ajudar a criar uma experiência consistente?
+
+- **Dados e Backend:**
+  - SQLite: É a melhor escolha para nossos requisitos de dados?
+  - Express: Como ele pode facilitar nossa API?
+  - TypeScript: Que benefícios traz para a manutenção e escalabilidade?
+
+**Próximos Passos para Exploração:**
+
+1. Investigar cada tecnologia proposta em profundidade
+2. Criar protótipos para testar diferentes abordagens
+3. Coletar feedback sobre a usabilidade e eficácia
+4. Iterar com base nas descobertas
+5. Adaptar conforme novos insights emergem
+
+Esta é uma jornada de descoberta contínua, onde cada resposta pode levar a novas questões. O objetivo não é apenas criar uma plataforma, mas desenvolver um entendimento mais profundo de como podemos melhor servir à necessidade de informação sobre este projeto global transformador.

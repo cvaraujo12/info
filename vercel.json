@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "astro",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "regions": ["gru1"],
+  "outputDirectory": "dist",
+  "public": false,
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}
