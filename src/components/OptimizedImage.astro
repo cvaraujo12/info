@@ -22,13 +22,10 @@ const {
   class: className
 } = Astro.props;
 
-<Picture
+<img
   src={src}
   alt={alt}
-  sizes={sizes}
-  widths={widths}
-  aspectRatio={aspectRatio}
-  formats={formats}
   loading={loading}
   class={className}
-/> 
+  decoding="async"
+/>

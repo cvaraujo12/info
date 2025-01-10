@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import image from '@astrojs/image';
 import tailwind from '@astrojs/tailwind';
 import node from '@astrojs/node';
 import compress from 'astro-compress';
@@ -10,11 +9,6 @@ export default defineConfig({
     react({
       experimentalReactChildren: true,
       include: ['**/react/*'],
-    }),
-    image({
-      serviceEntrypoint: '@astrojs/image/sharp',
-      cacheDir: './.cache/image',
-      logLevel: 'debug'
     }),
     tailwind(),
     compress({
@@ -49,7 +43,7 @@ export default defineConfig({
       }
     },
     ssr: {
-      noExternal: ['react-icons']
+      noExternal: ['react-chartjs-2', 'chart.js']
     }
   },
   prefetch: true,
@@ -57,4 +51,4 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto'
   }
-}); 
+});
