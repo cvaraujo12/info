@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 
 export default defineConfig({
@@ -20,8 +20,20 @@ export default defineConfig({
     })
   ],
   output: 'server',
-  adapter: node({
-    mode: 'standalone'
+  adapter: vercel({
+    analytics: true,
+    webAnalytics: {
+      enabled: true
+    },
+    speedInsights: {
+      enabled: true
+    },
+    imageService: true,
+    imagesConfig: {
+      sizes: [640, 750, 828, 1080, 1200, 1920],
+      domains: [],
+      minimumCacheTTL: 60
+    }
   }),
   vite: {
     build: {
