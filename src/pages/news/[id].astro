@@ -1,0 +1,48 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { fetchNewsById } from '../../lib/services/api';
+import { formatDate } from '../../lib/utils';
+
+const { id } = Astro.params;
+const response = await fetchNewsById(Number(id));
+
+if (!response.data) {
+  return Astro.redirect('/404');
+}
+
+const news = response.data;
+---
+
+<MainLayout title={`${news.title} - Info Route`} description={news.content.slice(0, 160)}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <article class="prose prose-lg max-w-none">
+      {news.imageUrl && (
+        <img
+          src={news.imageUrl}
+          alt={news.title}
+          class="w-full h-96 object-cover rounded-lg shadow-lg mb-8"
+        />
+      )}
+      
+      <header class="mb-8">
+        <div class="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          <time datetime={news.date}>{formatDate(news.date)}</time>
+          <span>•</span>
+          <span>{news.category}</span>
+          <span>•</span>
+          <span>Por {news.author}</span>
+          <span>•</span>
+          <span>Fonte: {news.source}</span>
+        </div>
+        
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          {news.title}
+        </h1>
+      </header>
+
+      <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">
+        {news.content}
+      </div>
+    </article>
+  </div>
+</MainLayout> 

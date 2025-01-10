@@ -1,0 +1,42 @@
+# Criar e inicializar o projeto
+npm create astro@latest info-route -- --template basics --install --typescript --git
+cd info-route
+
+# Instalar dependências principais
+npm install @astrojs/node @astrojs/react @astrojs/tailwind @astrojs/image
+npm install react react-dom
+npm install tailwindcss postcss autoprefixer
+npm install sharp
+npm install express
+npm install dotenv
+
+# Instalar dependências do banco de dados
+npm install drizzle-orm better-sqlite3
+npm install -D drizzle-kit @types/better-sqlite3
+
+# Instalar dependências de UI
+npm install @radix-ui/react-slot class-variance-authority clsx tailwind-merge
+npm install @radix-ui/react-dialog @radix-ui/react-dropdown-menu
+npm install @radix-ui/react-select @radix-ui/react-tabs
+npm install lucide-react
+
+# Instalar dependências de gráficos e mapas
+npm install chart.js react-chartjs-2
+npm install mapbox-gl @types/mapbox-gl
+
+# Instalar tipos
+npm install -D typescript @types/node @types/react @types/react-dom
+npm install -D @types/express @types/better-sqlite3
+npm install -D @types/astro
+npm install -D @types/chart.js
+npm install -D @types/mapbox-gl
+npm install -D @types/clsx
+
+# Instalar dependências de desenvolvimento adicionais
+npm install -D tsx
+npm install -D @astrojs/ts-plugin
+npm install -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm install -D eslint eslint-plugin-astro eslint-plugin-jsx-a11y
+
+# Executar setup inicial
+npm run setup 

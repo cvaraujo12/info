@@ -1,0 +1,48 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { fetchRoutes } from '@/lib/services/api.ts';
+
+const routes = await fetchRoutes();
+---
+
+<MainLayout title="Mapa - Info Route" description="Mapa interativo da Nova Rota da Seda">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="space-y-8">
+      <div>
+        <h1 class="text-3xl font-bold">Mapa Interativo</h1>
+        <p class="mt-2 text-lg text-gray-600">
+          Explore as rotas terrestres e marítimas da Nova Rota da Seda
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm p-4 min-h-[600px]">
+        {/* @ts-expect-error - Dynamic import in Astro */}
+        <InteractiveMap
+          routes={routes}
+          client:visible
+        />
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h2 class="font-semibold text-blue-800">Rotas Marítimas</h2>
+          <p class="mt-1 text-sm text-blue-600">
+            Conectando os principais portos da Ásia, África e Europa através dos oceanos
+          </p>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h2 class="font-semibold text-green-800">Rotas Terrestres</h2>
+          <p class="mt-1 text-sm text-green-600">
+            Ligando a China à Europa através da Ásia Central e Oriente Médio
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  import { InteractiveMap } from '@/components/maps/InteractiveMap.tsx';
+</script> 

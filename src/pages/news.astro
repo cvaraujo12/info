@@ -1,0 +1,115 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { NewsCard } from '../components';
+import { Input, Select, Pagination } from '../components/ui';
+import { fetchNews } from '../lib/services/api';
+import { useSearch } from '../hooks/useSearch';
+import type { News } from '../types/api';
+
+const news = await fetchNews();
+
+// Obter categorias únicas
+const categories = [...new Set(news.map(item => item.category))];
+---
+
+<MainLayout title="Notícias - Info Route" description="Últimas notícias sobre a Nova Rota da Seda">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="space-y-8">
+      <div>
+        <h1 class="text-3xl font-bold">Notícias</h1>
+        <p class="mt-2 text-lg text-gray-600">
+          Acompanhe as últimas atualizações e desenvolvimentos da Nova Rota da Seda
+        </p>
+      </div>
+
+      <div class="flex gap-4">
+        <div class="flex-1">
+          <Input
+            type="search"
+            placeholder="Buscar notícias..."
+            className="w-full"
+            client:load
+          />
+        </div>
+        <div class="w-48">
+          <Select client:load>
+            <option value="">Todas as categorias</option>
+            {categories.map(category => (
+              <option value={category}>{category}</option>
+            ))}
+          </Select>
+        </div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-news={JSON.stringify(news)}>
+        {news.map((item) => (
+          <NewsCard news={item} client:load />
+        ))}
+      </div>
+
+      <div class="flex justify-center">
+        <Pagination
+          currentPage={1}
+          totalPages={Math.ceil(news.length / 9)}
+          onPageChange={(page) => {}}
+          client:load
+        />
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  import { useSearch } from '../hooks/useSearch';
+  import type { News } from '../types/api';
+
+  // Inicializar busca
+  const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+  const categorySelect = document.querySelector('select') as HTMLSelectElement;
+  const newsContainer = document.querySelector('.grid') as HTMLDivElement;
+  const pagination = document.querySelector('nav[role="navigation"]') as HTMLElement;
+
+  // Obter dados iniciais
+  const initialNews = JSON.parse(newsContainer.dataset.news || '[]') as News[];
+
+  // Configurar busca
+  const search = useSearch({
+    data: initialNews,
+    searchFields: ['title', 'content', 'author', 'source'],
+    filterFields: { category: '' },
+    sortField: 'date',
+    sortDirection: 'desc',
+    itemsPerPage: 9
+  });
+
+  // Atualizar UI quando os dados mudarem
+  function updateUI() {
+    // Atualizar lista de notícias
+    newsContainer.innerHTML = search.data
+      .map(item => `<news-card news='${JSON.stringify(item)}'></news-card>`)
+      .join('');
+
+    // Atualizar paginação
+    if (pagination) {
+      pagination.dataset.currentPage = String(search.currentPage);
+      pagination.dataset.totalPages = String(search.totalPages);
+    }
+  }
+
+  // Adicionar event listeners
+  searchInput?.addEventListener('input', (e) => {
+    search.setSearchTerm((e.target as HTMLInputElement).value);
+    updateUI();
+  });
+
+  categorySelect?.addEventListener('change', (e) => {
+    search.setFilters({ category: (e.target as HTMLSelectElement).value });
+    updateUI();
+  });
+
+  pagination?.addEventListener('page-change', (e) => {
+    const page = (e as CustomEvent).detail;
+    search.setCurrentPage(page);
+    updateUI();
+  });
+</script> 

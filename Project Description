@@ -1,0 +1,46 @@
+**Project Description:**
+
+Info Route is a comprehensive and detailed website dedicated to providing up-to-date information about the New Silk Road (Belt and Road Initiative), a significant global infrastructure development project led by China. The platform aims to serve as a single source of information on news and updates, data and statistics, economic and geopolitical impacts, interactive maps, opinions and interviews, and technological innovations and sustainability related to the New Silk Road.
+
+**Design Guidelines:**
+
+1. **News and Updates:**
+   - Present the latest announcements and developments related to the New Silk Road, including infrastructure projects, international partnerships, trade negotiations, and events.
+   - Ensure that the news and updates are presented in a clear, concise, and easy-to-understand format for investors, academics, and government leaders.
+
+2. **Data and Statistics:**
+   - Gather and visualize detailed data on investment and progress of the countries involved.
+   - Include trade volumes, project numbers, construction costs, and growth forecasts using interactive charts and graphs.
+   - Ensure that the data and statistics are accurate, up-to-date, and easily accessible for users.
+
+3. **Economic and Geopolitical Impacts:**
+   - Analyze the impacts of the New Silk Road on regional and global economies.
+   - Explore geopolitical issues arising from the expansion of this trade route.
+   - Provide articles and analyses on diplomatic relations between participating countries, economic challenges, and opportunities.
+   - Ensure that the analysis is unbiased, informative, and relevant to the users.
+
+4. **Interactive Maps:**
+   - Display detailed maps of transportation routes, ports, and rail terminals.
+   - Help readers visualize the connections between China, Europe, Asia, Africa, and other regions.
+   - Ensure that the interactive maps are user-friendly, informative, and accurate.
+
+5. **Opinions and Interviews:**
+   - Provide a section for opinion pieces and interviews with experts on international trade, global politics, and economic development.
+   - Discuss the long-term effects of the Silk Road on China and partner countries.
+   - Ensure that the opinions and interviews are diverse, insightful, and relevant to the users.
+
+6. **Technological innovations and sustainability:**
+   - Address the technological and environmental aspects of the Silk Road.
+   - Highlight projects related to renewable energy, sustainable transport and infrastructure innovations.
+   - Emphasize how the initiative aims to address global sustainability challenges.
+   - Ensure that the information on technological innovations and sustainability is accurate, up-to-date, and relevant to the users.
+
+**Additional Instructions:**
+
+- Ensure that the platform is accessible and user-friendly for investors, academics, and government leaders.
+- Position Info Route as an essential platform for those seeking to follow the development of the largest global economic initiative of the 21st century.
+- Provide crucial insights into the opportunities and challenges of the New Silk Road.
+- Use Astro, React, SQLite, Express, Tailwind, Shadcn, and Typescript to build the website.
+- Ensure that the website is optimized for speed, security, and scalability.
+- Test the website thoroughly for bugs, compatibility issues, and user experience.
+- Follow best practices for web design, development, and accessibility.

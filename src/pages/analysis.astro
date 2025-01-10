@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navigation } from '../components/Navigation';
+---
+
+<Layout title="Análises - Info Route">
+  <Navigation client:load />
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold mb-8">Análises Geopolíticas</h1>
+    <div class="grid gap-8">
+      <article class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Impacto Econômico Global</h2>
+        <div class="prose max-w-none">
+          <p class="text-gray-600 mb-4">
+            Análise detalhada dos impactos econômicos da Nova Rota da Seda nos países participantes.
+          </p>
+          <h3 class="text-xl font-semibold mt-6 mb-3">Principais Pontos</h3>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Investimentos em infraestrutura</li>
+            <li>Desenvolvimento econômico regional</li>
+            <li>Cooperação internacional</li>
+            <li>Desafios e oportunidades</li>
+          </ul>
+        </div>
+      </article>
+      
+      <article class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Perspectivas Geopolíticas</h2>
+        <div class="prose max-w-none">
+          <p class="text-gray-600 mb-4">
+            Análise das implicações geopolíticas e estratégicas do projeto.
+          </p>
+          <h3 class="text-xl font-semibold mt-6 mb-3">Aspectos Relevantes</h3>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Relações internacionais</li>
+            <li>Equilíbrio de poder global</li>
+            <li>Cooperação regional</li>
+            <li>Desafios políticos</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </main>
+</Layout> 

@@ -1,0 +1,34 @@
+import { Picture } from '@astrojs/image/components';
+
+interface Props {
+  src: string;
+  alt: string;
+  sizes?: string;
+  widths?: number[];
+  aspectRatio?: number;
+  formats?: Array<'avif' | 'webp' | 'jpeg' | 'png'>;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  sizes = '(max-width: 768px) 100vw, 768px',
+  widths = [400, 800, 1200],
+  aspectRatio = 16/9,
+  formats = ['avif', 'webp', 'jpeg'],
+  loading = 'lazy',
+  class: className
+} = Astro.props;
+
+<Picture
+  src={src}
+  alt={alt}
+  sizes={sizes}
+  widths={widths}
+  aspectRatio={aspectRatio}
+  formats={formats}
+  loading={loading}
+  class={className}
+/> 

@@ -1,0 +1,31 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { RouteCard } from '../components';
+import { InteractiveMap } from '../components/maps/InteractiveMap';
+import { Loading } from '../components/ui';
+import { fetchRoutes } from '../lib/services';
+
+const routes = await fetchRoutes();
+
+const mapRoutes = routes.map(route => ({
+  type: route.type,
+  name: route.name,
+  coordinates: JSON.parse(route.countries)
+}));
+---
+
+<MainLayout title="Rotas - Info Route" description="Rotas e conexões da Nova Rota da Seda">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold mb-8">Rotas</h1>
+    
+    <div class="mb-12">
+      <InteractiveMap routes={mapRoutes} client:load />
+    </div>
+    
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {routes.map((route) => (
+        <RouteCard route={route} />
+      ))}
+    </div>
+  </div>
+</MainLayout> 

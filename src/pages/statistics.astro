@@ -1,0 +1,57 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { LineChart } from '../components/charts/LineChart';
+import { StatisticsCard } from '../components';
+import { fetchStatistics } from '../lib/services';
+
+const statistics = await fetchStatistics();
+
+// Agrupar estatísticas por categoria
+const categories = [...new Set(statistics.map(stat => stat.category))];
+---
+
+<MainLayout title="Estatísticas - Info Route" description="Estatísticas e dados da Nova Rota da Seda">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="space-y-8">
+      <div>
+        <h1 class="text-3xl font-bold">Estatísticas</h1>
+        <p class="mt-2 text-lg text-gray-600">
+          Dados e números sobre o desenvolvimento da Nova Rota da Seda
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {categories.map(category => {
+          const categoryStats = statistics.filter(stat => stat.category === category);
+          return (
+            <div class="space-y-4">
+              <h2 class="text-xl font-semibold">{category}</h2>
+              <div class="bg-white rounded-lg shadow-sm">
+                <LineChart
+                  data={categoryStats}
+                  title={`Evolução - ${category}`}
+                  client:load
+                />
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                {categoryStats.map(stat => (
+                  <StatisticsCard statistics={stat} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div class="bg-gray-50 rounded-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Fontes de Dados</h2>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li>• Banco Mundial - Dados de investimento e comércio internacional</li>
+          <li>• OMC - Estatísticas de comércio global</li>
+          <li>• Banco Asiático de Desenvolvimento - Indicadores econômicos</li>
+          <li>• Ministério do Comércio da China - Dados de projetos e investimentos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</MainLayout> 
